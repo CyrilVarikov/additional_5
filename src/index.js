@@ -1,5 +1,6 @@
 module.exports = function check(str, bracketsConfig) {
 
+  //превращаем строку в массив, для дальнейшей работы с ним
   var arrBrackets = str.split('');
   if (+bracketsConfig[0][0] === 1) {
     arrBrackets = workWithNumber(arrBrackets, bracketsConfig);
@@ -10,7 +11,9 @@ module.exports = function check(str, bracketsConfig) {
     }
   }
 
-
+//удаляем пары скобок
+//по принципу, проверяем предыдущую скобку, если выпонляется заданный трафарет,
+//то удаляем пару
   var prevBr;
   var i = 0;
   while ((i < arrBrackets.length) && (arrBrackets.length !== 0)) {
@@ -107,6 +110,7 @@ module.exports = function check(str, bracketsConfig) {
     return false;
   }
 
+  //Делаем всё аналогично(первый комментарий), но проверяем "трафареты" для работы с цифрами
   function workWithNumber(arrNumber, bracketsConfig) {
     var prevBr;
     var i = 0;
